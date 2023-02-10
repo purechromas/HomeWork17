@@ -118,9 +118,8 @@ class MoviesView(Resource):
             ddi = Movie.query.filter_by(director_id=data_director_id).all()
             return movies_schema.dump(ddi), 200
         elif data_genre_id:
-            dgi = db.session.query(Movie).filter(genre_id=int(data_genre_id)).all()
-            result = movies_schema.dump(dgi)
-            return result, 200
+            dgi = Movie.query.filter_by(genre_id=data_genre_id.all()
+            return movies_schema.dump(dgi), 200
         else:
             movies = Movie.query.all()
             return movies_schema.dump(movies), 200
