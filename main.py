@@ -111,7 +111,7 @@ class MoviesView(Resource):
     def get(self):
         data_director_id = request.args.get('director_id')
         data_genre_id = request.args.get('genre_id')
-        if data_genre_id and data_genre_id:
+        if data_director_id and data_genre_id:
             ddidgimix = Movie.query.filter_by(director_id=data_director_id, genre_id=data_genre_id).all()
             return movies_schema.dump(ddidgimix), 200
         elif data_director_id:
